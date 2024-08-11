@@ -1,0 +1,30 @@
+1) PERMUTATION
+class Solution {
+public:
+
+    void permute(vector<int>&vect,vector<vector<int>>&ans , int ind)
+    {
+        if(vect.size() == ind)
+        {
+            ans.push_back(vect);
+            return;
+        }
+
+        for(int i=ind;i<vect.size();i++)
+        {
+            swap(vect[ind],vect[i]);
+            permute(vect,ans,ind+1);
+            swap(vect[ind],vect[i]);
+        }
+    }
+    vector<vector<int>> permute(vector<int>& nums) 
+    {
+
+        vector<vector<int>> ans;
+
+        permute(nums,ans,0);
+        return ans;
+
+    }
+};
+
